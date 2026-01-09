@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auth API Frontend</title>
+  <style>
+    body { font-family: Arial; max-width: 500px; margin: 50px auto; }
+    input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+    #token, #protectedMessage { word-break: break-word; background: #f4f4f4; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Auth API Test</h1>
+
+  <h2>Signup</h2>
+  <input type="email" id="signupEmail" placeholder="Email">
+  <input type="password" id="signupPassword" placeholder="Password">
+  <input type="text" id="signupRole" placeholder="Role (user/admin)">
+  <button id="signupBtn">Register</button>
+  <p id="signupMessage"></p>
+
+  <h2>Login</h2>
+  <input type="email" id="loginEmail" placeholder="Email">
+  <input type="password" id="loginPassword" placeholder="Password">
+  <button id="loginBtn">Login</button>
+  <p id="loginMessage"></p>
+
+  <h2>Access Token</h2>
+  <div id="token"></div>
+
+  <h2>Protected Routes</h2>
+  <button id="getMeBtn">Get My Info</button>
+  <button id="getAdminBtn">Get Admin Info</button>
+  <div id="protectedMessage"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
