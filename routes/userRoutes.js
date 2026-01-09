@@ -3,14 +3,16 @@ const router = express.Router();
 const authenticate = require("../middlewares/authMiddleware");
 const authorize = require("../middlewares/roleMiddleware");
 
-// Route accessible by any logged-in user
-router.get("/me", authenticate, (req, res) => {
-  res.json({ id: req.user.id, role: req.user.role });
+router.get("/profile", authenticate, (req, res) => {
+  res.json({ message: "This is your profile", user: req.user });
 });
 
-// Route accessible by admin only
 router.get("/admin", authenticate, authorize("admin"), (req, res) => {
-  res.json({ message: "Welcome admin!" });
+  res.json({ message: "Welcome Admin!" });
+});
+
+router.get("/dashboard", authenticate, authorize(["user", "admin"]), (req, res) => {
+  res.json({ message: "Dashboard for users and admins", user: req.user });
 });
 
 module.exports = router;
